@@ -2,6 +2,10 @@
 
 Tutorials for ROS2 - humble.
 
+- Ubuntu 22 (Only native!)
+- ROS2 humble
+- C++
+
 ## [ex01_first_package](./ex01_first_package/README.md)
 
 - Learning ROS concepts
@@ -78,4 +82,4 @@ When the students reached certain points, I explained the theory and some practi
 
 Furthermore, I am aware of more nice ROS tools that help to finish things faster. However, I did not mention them because the students had to learn enough commands anyways.
 
-These tutorials were tested by undergraduate 12 students in 3rd or 5th semester with not much C++ experience, no CMake and no Linux experience. It took them 6 days to finish with `ex04_navigation`. They then had to work on a project for about 1.5 weeks and give a 30-minute presentation including a demonstration at the end. The remain days were spend for documentation. In total it took 3 weeks fulltime.
+These tutorials were tested by 12 undergraduate students of Osnabrück Univertity. They were in their 3rd or 5th semester and did not have much experience with C++, nor with CMake, or Linux. It took them 6 days to finish with `ex04_navigation`. They then had to work on a project for about 1.5 weeks and give a 30-minute presentation including a demonstration at the end. The remaining days were spent on documentation. In total, it took 3 weeks full-time.
