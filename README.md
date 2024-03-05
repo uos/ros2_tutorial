@@ -7,7 +7,7 @@ ROS2 humble - Tutorials for the [KBS](https://kbs.informatik.uos.de/) robotics l
 
 All examples are implemented using C++ programming language. The course is at a very beginner level.
 
-## [ex01_first_package](./ex01_first_package/README.md)
+## [ex01_first_package](./ex01_first_package/)
 
 - Learning ROS concepts
 - Writing a simple subscriber and publisher
@@ -15,7 +15,7 @@ All examples are implemented using C++ programming language. The course is at a 
 - Learn to use `vim`
 - Environment variables, `.bashrc`
 
-## [ex02_gazebo_simulation](./ex02_gazebo_simulation/README.md)
+## [ex02_gazebo_simulation](./ex02_gazebo_simulation/)
 
 - Start a robot! Virtually
 - More ROS packaging
@@ -28,7 +28,7 @@ All examples are implemented using C++ programming language. The course is at a 
 - Fun: Steer the robot
 - New message: Twist
 
-## [ex03_state_estimation](./ex03_state_estimation/README.md)
+## [ex03_state_estimation](./ex03_state_estimation/)
 
 - Concept: State Estimation via
   - Wheel Odometry
@@ -44,7 +44,7 @@ All examples are implemented using C++ programming language. The course is at a 
   - Maps
   - SLAM
 
-## [ex04_navigation](./ex04_navigation/README.md)
+## [ex04_navigation](./ex04_navigation/)
 
 - Localization in given maps
   - EKF vs SLAM vs AMCL
@@ -52,7 +52,7 @@ All examples are implemented using C++ programming language. The course is at a 
 - Actions
 - Call Nav2 action servers via C++
 
-## [ex05_behavior_trees](./ex05_behavior_trees/README.md)
+## [ex05_behavior_trees](./ex05_behavior_trees/)
 
 !! Unfinished !!
 
