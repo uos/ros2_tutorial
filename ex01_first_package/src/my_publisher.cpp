@@ -1,5 +1,5 @@
 // Include header
-#include "ex02_gazebo_simulation/my_publisher.hpp"
+#include "ex01_first_package/my_publisher.hpp"
 
 #include <chrono>
 #include <functional>
@@ -11,7 +11,7 @@
 
 using namespace std::chrono_literals;
 
-namespace ex02_gazebo_simulation
+namespace ex01_first_package
 {
 
 MyPublisher::MyPublisher()
@@ -31,5 +31,4 @@ void MyPublisher::timer_callback()
   publisher_->publish(message);
 }
 
-
-} // namespace ex02_gazebo_simulation
+} // namespace ex01_first_package

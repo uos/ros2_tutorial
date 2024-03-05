@@ -34,51 +34,6 @@ install(TARGETS
     scan_to_pcl
   DESTINATION lib/${PROJECT_NAME})
 
-
-###########
-## ADDITIONAL: EXAMPLE FOR PUBLISHER NODE
-## - Header-File, Source-File, Main-Function-File
-## Create a library called 'my_publisher'
-## Use the library in 'my_publisher_node'
-
-add_library(my_publisher
-  src/my_publisher.cpp
-)
-
-target_include_directories(my_publisher PUBLIC
-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-  "$<INSTALL_INTERFACE:include>"
-)
-
-ament_target_dependencies(my_publisher
-  rclcpp
-  std_msgs
-  sensor_msgs
-  geometry_msgs
-)
-
-install(TARGETS my_publisher
-    ARCHIVE DESTINATION lib/${PROJECT_NAME}
-    LIBRARY DESTINATION lib/${PROJECT_NAME}
-    RUNTIME DESTINATION bin/${PROJECT_NAME}
-)
-
-add_executable(my_publisher_node
-  src/publisher_node.cpp
-)
-
-target_link_libraries(my_publisher_node
-  my_publisher
-)
-
-ament_target_dependencies(my_publisher_node
-  rclcpp
-)
-
-install(TARGETS
-  my_publisher_node
-  DESTINATION lib/${PROJECT_NAME})
-
 ########
 ## Transform Pointcloud using Eigen
 add_executable(transform_pcl
