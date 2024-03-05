@@ -1,0 +1,7 @@
+# input
+float32 duration -1.0
+---
+# result
+geometry_msgs/PoseStamped pose
+---
+# feedback
