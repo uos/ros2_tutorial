@@ -343,6 +343,8 @@ Test the commands with your topics.
 
 ### Data Distribution Services
 
+**Important**: This step is required when working with our robots!!!
+
 The default DDS that is used by ROS is `FastDDS`. In our tests, it tends to be unstable in networks. Luckily, we can switch to another implementation called `CylconeDDS` by installing it:
 
 ```console
@@ -356,7 +358,7 @@ And enabling it by adding the following lines to your `.bashrc`:
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ```
 
-Then restart your computer OR the ROS daemon
+Then restart your computer or the ROS daemon
 
 ```console
 ros2 daemon stop
@@ -371,3 +373,6 @@ Not required but just in case: If you want to recover the default `FastDDS` use:
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 ```
 
+### Addition: CPP tutorial
+
+In this package, I placed another method of writing a publisher. With `src/my_publisher.cpp` and `include/ex01_first_package/my_publisher.hpp` a library is built named `my_publisher`. This library is installed and can be used by every other package. As an example, the main node `src/publisher_lib.cpp` includes the header and links to the library.

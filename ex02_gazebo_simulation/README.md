@@ -180,8 +180,3 @@ Use the laser scan to find free space. Steer the robot towards it and drive. Wha
 
 - Subscriber to `scan`
 - Publisher on `cmd_vel`
-
-
-### Addition: CPP tutorial
-
-In this package, I placed another method of writing a publisher. With `src/my_publisher.cpp` and `include/ex02_gazebo_simulation/my_publisher.hpp` a library is built named `my_publisher`. This library is installed and can be used by every other package. The main node `src/publisher_node.cpp` just includes the header and links to the library.
