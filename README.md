@@ -1,10 +1,11 @@
 # ros2_tutorial
 
-Tutorials for ROS2 - humble.
+ROS2 humble - Tutorials for the [KBS](https://kbs.informatik.uos.de/) robotics labs in wintersemester 2023/24; Osnabrück University. A computer is need with:
 
 - Ubuntu 22 (Only native!)
-- ROS2 humble
-- C++
+- ROS2 humble (see first tutorial)
+
+All examples are implemented using C++ programming language. The course is at a very beginner level.
 
 ## [ex01_first_package](./ex01_first_package/README.md)
 
