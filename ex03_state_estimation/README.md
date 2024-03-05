@@ -1,13 +1,15 @@
 # ex03_state_estimation
 
-Theory Lesson: state estimation (TODO write it down here)
+Theory Lesson: state estimation 
+
+(TODO write it down here)
 
 ## Sensors for State Estimation
 
 ### Wheel Odometry
 
 How far did my robot travel based on the number of revolutions my motor did? Calculate it for the simplest case by hand: Only driving forwards.
-Think about what changes if the robot moves has a linear and an angular velocity. 
+Think about what changes if the robot has a linear and an angular velocity. 
 
 
 What to know about wheel odometry:
