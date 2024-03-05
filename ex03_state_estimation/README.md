@@ -1,6 +1,6 @@
 # ex03_state_estimation
 
-Lesson state estimation ... TODO write it down here
+Theory Lesson: state estimation (TODO write it down here)
 
 ## Sensors for State Estimation
 

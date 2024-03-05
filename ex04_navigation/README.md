@@ -55,7 +55,8 @@ Markow localization has a multimodal belief state representation but has the dis
 
 In many cases it is not required to have multiple modes in the belief state. But sometimes it is. For example when doing global localization. Normally, the computational effort increases when doing MCL over SLAM.
 
-(*) The term SLAM - simultaneous localization and mapping - does not exclude the usage of multimodal belief states. However, most of the recent SLAM software has an underlying unimodal belief state.
+(*) The term SLAM - simultaneous localization and mapping - does not exclude the usage of multimodal belief states. However, most of the recent SLAM software has an underlying unimodal belief state. Some SLAM approaches add past pose estimates to the belief state; its dimensionality is growing with each pose added. If interested, search for pose graphs or factor graphs.
+
 
 MCL ([Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_localization)):
 
@@ -67,7 +68,7 @@ Bimodal Distribution ([Wikipedia](https://en.wikipedia.org/wiki/Multimodal_distr
 
 ## Nav2
 
-Given the localization in the map it becomes possible to plan and follow paths from the robots position to a given goal somewhere else in the map. There is a package exactly handling that: nav2. Browse a bit on their website: https://navigation.ros.org/. In this exercise you will start a preconfigured nav2 launch file to let the robot for the first time autonomously drive through the map.
+Given the localization in the map it becomes possible to plan and follow paths from the robot's position to a given goal somewhere else in the map. There is a package exactly handling that: nav2. Browse a bit on their website: https://navigation.ros.org/. In this exercise, you will start a preconfigured nav2 launch file to let the robot for the first time autonomously drive through the map.
 
 ```console
 ros2 launch ceres_navigation nav2_launch.py
@@ -89,11 +90,11 @@ Additionally, nav2 uses so-called cost-layers on top of the regular grid map. Wi
 
 #### Inflation Layer
 
-To make computations simpler, the walls in the map are inflated by the robots radius. Like this, the robot can be considered as a point. Assuming the robots are looking like circles. 
+To make computations simpler, the walls in the map are inflated by the robot's radius. Like this, the robot can be considered as a point. Assuming the robots are looking like circles. 
 
 ## Actions
 
-What you implemented so far are programs that run forever. For example, converting messages from topics to another topic. But some tasks of the robot have an end. For example, driving from A to B. Such a task is also referred to as an "action". For this ROS2 implements action interfaces to use. It is splitted into action servers and action client. The action server is always executing the action (like driving from A to B). The action-client is triggering the action an can receive feedback of the current progress of the action:
+What you implemented so far are programs that run forever. For example, converting messages from topics to another topic. But some tasks of the robot have an end. For example, driving from A to B. Such a task is also referred to as an "action". For this ROS2 implements action interfaces to use. It is splitted into action servers and action client. The action server is always executing the action (like driving from A to B). The action client is triggering the action and can receive feedback by the action server of the current progress of the action:
 
 ![action_server_client](./dat/action_server_client.png)
 
@@ -121,7 +122,7 @@ The package `ex04_msgs` shows a minimal example of how to compile those actions.
 
 ### Own action server
 
-`WaitForX` and `WaitForRvizPose` are action interfaces. This means the can be used independent from the programming language to trigger an action server to do something. In this task you will write an action server that will handle the logic around:
+`WaitForX` and `WaitForRvizPose` are action interfaces. This means they can be used independently from the programming language to trigger an action server to do something. In this task, you will write an action server that will handle the logic around:
 
 `WaitForXActionServer`:
 - `WaitForX` action goal comes from someone (client)
@@ -152,7 +153,7 @@ Try the same with the `/wait_for_rviz_pose` action server.
 
 ### Own action client
 
-Instead of using the command line tools. In this task you will call your action servers with a self-made action client using C++. File: `ex04_actions/src/wait_for_x_client`. Read, understand and execute the code. 
+Instead of using the command line tools. In this task, you will call your action servers with a self-made action client using C++. File: `ex04_actions/src/wait_for_x_client`. Read, understand and execute the code. 
 
 ### Nav2 action client
 
