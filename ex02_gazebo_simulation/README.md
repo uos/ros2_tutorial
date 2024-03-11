@@ -6,12 +6,12 @@
 Git-Clone the following packages into your ROS-workspace `src` directory using git:
 You will need some package to run the simulation of the robot. The same software packages are installed on the robot as well.
 
-- https://gitlab.informatik.uni-osnabrueck.de/kbs_robots/ceres_robot
-- https://gitlab.informatik.uni-osnabrueck.de/kbs_software/uos_tools
-- https://gitlab.informatik.uni-osnabrueck.de/kbs_software/epos2_motor_controller
-- https://gitlab.informatik.uni-osnabrueck.de/kbs_software/volksbot_driver
+- https://github.com/uos/ceres_robot
+- https://github.com/uos/uos_tools
+- https://github.com/uos/epos2_motor_controller
+- https://github.com/uos/volksbot_driver
 
-Make sure all the repositories are on the "humble" branch. Compile your workspace. If errors occur:
+The current main branch of those software packages should be compatible with ROS2 humble. To make sure, switch all the repositories to "humble" branch instead: Go to a cloned repository folder and run `git checkout humble`. After you did that for every repository, compile your workspace. If errors occur:
 - ROS-Package is missing: `sudo apt-get install ros-humble-MISSING-PACKAGE`
 - System package is missing: `sudo apt-get install libftdipp1-dev`
 
@@ -46,7 +46,13 @@ A window will open. As long as it is the activate window you can control the rob
 ros2 run rviz2 rviz2
 ```
 
-The robot is equipped with a laser scanner. Try to visualize the respective topic. Set the fixed frame to 'base_link'. What a fixed frame is, will be explained soon.
+or the shortcut:
+
+```console
+rviz2
+```
+
+The robot is equipped with a laser scanner. Try to visualize the corresponding topic. Set the fixed frame to 'base_link'. What a fixed frame is will be explained soon.
 Move the robot around and see how the sensor data changes. RViz will be used with the real robot to monitor processes. Gazebo not.
 
 ## Use the sensor data
@@ -101,7 +107,8 @@ Short Description: Transform a PointCloud2. Read a cloud from the recently gener
 
 - tf2 transform listener: to receive the transformation between two frames. Google for examples
 - apply the transformation to each of the pointcloud's points
-- put the transformed points into another pointcloud
+- create a new pointcloud from the transformed points
+- change the header of the new pointcloud to the new coordinate frame
 - publish the resulting cloud on the topic `scan_cloud_transformed`.
 
 Show the results in RViz. Explain the results.
