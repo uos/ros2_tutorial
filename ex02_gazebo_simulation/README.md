@@ -20,8 +20,8 @@ The current main branch of those software packages should be compatible with ROS
 Let's assume the package `missing_package` is missing from your computer. Try to install it in this order, finish when one command has succeeded:
 
 1. Install via apt: `sudo apt install ros-humble-missing-package`
-2. Install via Github: Search for package on github. Check if it's a valid ROS2-humble package. Download `missing_package` it into your `src`-folder and compile it
-3. Install via Gitlab: Search for package on UOS-Gitlab. Check if it's a valid ROS2-humble package. Download `missing_package` it into your `src`-folder and compile it
+2. Install via Github: Search for the package on github. Check if it's a valid ROS2-humble package. Download `missing_package` into your `src`-folder and compile it
+3. Install via Gitlab: Search for the package on UOS-Gitlab. Check if it's a valid ROS2-humble package. Download `missing_package` into your `src`-folder and compile it
 4. Go to Alex
 
 ## Run the Simulation
@@ -30,7 +30,7 @@ Let's assume the package `missing_package` is missing from your computer. Try to
 ros2 launch ceres_gazebo ceres_gazebo_launch.py
 ```
 
-A graphical interface starts with a robot in it, spawned in an office environment. Try to add a cube. Try to move the robot. Make yourself familiar with the functionalities. The simulation, as the name tells, simulates a real robot. So when you learn to control the robot in the simulation, you will be able to control the robot in the real world. The simulation will generate the sensor data and publishes them on some topics. Find out which topics. Print out some of the messages that are streamed on those topics.
+A graphical interface starts with a robot in it, spawned in an office environment. Try to add a cube. Try to move the robot. Make yourself familiar with the functionalities. The simulation, as the name tells, simulates a real robot. So when you learn to control the robot in the simulation, you will be able to control the robot in the real world. The simulation will generate the sensor data and publish them on some topics. Find out which topics. Print out some of the messages that are streamed on those topics.
 
 ## Control the robot
 
@@ -61,7 +61,7 @@ Write a node that filters noise from the scan. Subscribe to the topic `scan`, av
 
 ### Point Clouds
 
-Messages on the topic are in polar coordinates. Write a node that converts the LaserScan to a `PointCloud2` message and publish it on the topic `scan_cloud`. Don't use external libraries for the conversions. Copy the header of the `LaserScan` message to the header of the `PointCloud2` message. After publishing, visualize the results with RViz.
+Messages on the topic are in polar coordinates. Write a node that converts the LaserScan to a `PointCloud2` message and publishes it on the topic `scan_cloud`. Don't use external libraries for the conversions. Copy the header of the `LaserScan` message to the header of the `PointCloud2` message. After publishing, visualize the results with RViz.
 
 
 ## TF
@@ -83,7 +83,7 @@ string frame_id
 time stamp
 ```
 
-Sometimes messages have the postfix `Stamped` if they are extending a message only by a header. For example there is a message `geometry_msgs/Point`:
+Sometimes messages have the postfix `Stamped` if they are extending a message only by a header. For example, there is a message `geometry_msgs/Point`:
 
 ```cpp
 float64 x
@@ -106,9 +106,9 @@ Node: `transform_pcl`.
 Short Description: Transform a PointCloud2. Read a cloud from the recently generated point cloud topic and transform it into another coordinate frame. What you will need:
 
 - tf2 transform listener: to receive the transformation between two frames. Google for examples
-- apply the transformation to each of the pointcloud's points
-- create a new pointcloud from the transformed points
-- change the header of the new pointcloud to the new coordinate frame
+- apply the transformation to each of the point cloud's points
+- create a new point cloud from the transformed points
+- change the header of the new point cloud to the new coordinate frame
 - publish the resulting cloud on the topic `scan_cloud_transformed`.
 
 Show the results in RViz. Explain the results.
@@ -159,7 +159,7 @@ ex02_gazebo_simulation/
 
 With launch-files you can capsule node runs into one file. One advantage of this is that you will save a lot of terminal tabs.
 
-Task: Try to put all your nodes to the launch file and start it. A tutorial how to do it: https://docs.ros.org/en/foxy/How-To-Guides/Launch-file-different-formats.html.
+Task: Try to put all your nodes into the launch file and start it. A tutorial how to do it: https://docs.ros.org/en/foxy/How-To-Guides/Launch-file-different-formats.html.
 Change your parameters and test how to do remapping inside of a launch file.
 
 

@@ -7,9 +7,9 @@ Roboticists are happy
 - to not implement everything from scratch for every robot they have,
 - that they can use other software that was already implemented somewhere in the world.
 
-ROS1 was invented in 2007. It was mostly used in research and is completely open-source. Some design choices were considered bad. In addition, it had no guarantees in real-time executions nor in how safe communications were. Maybe because researchers don't care about that. But industry does. Recently ROS2 was released in 2017, seeking to overcome exactly those issues.
+ROS1 was invented in 2007. It was mostly used in research and is completely open-source. Some design choices were considered bad. In addition, it had no guarantees in real-time executions nor in how safe communications were. Recently ROS2 was released in 2017, seeking to overcome those and other issues.
 
-With the following set of repositories, we try to explain the basic ROS concepts by example. 
+With the following set of repositories, we try to explain the basic ROS concepts by example.
 
 ## ROS2
 
@@ -79,7 +79,7 @@ sudo apt install ros-dev-tools
 
 ### Environment Variables
 
-In many situations ROS2 will need additional configuration via environment variables. A good way is to add additional environment variables to the `~/.bashrc` file (`~` is the path to your home folder). Then they will be set every time a new terminal is started. Open the file with Vim (yes with vim) and add the following line to the end of the file:
+In many situations, ROS2 will need additional configuration via setting environment variables. A good way is to add additional environment variables to the `~/.bashrc` file (`~` is the path to your home folder). Then they will be set every time a new terminal is started. Open the file with Vim (yes with vim) and add the following line to the end of the file:
 
 ```console
 vi ~/.bashrc
@@ -170,7 +170,7 @@ user@pc:~/ceres_ws/src/ex01_first_package$ vi package.xml
 
 Open the <a href="./package.xml" target="_blank">`package.xml`</a> file of this repository to see its contents.
 
-Everything until `license` are tags giving meta information about the package.
+Everything until `license` are tags providing meta-information about the package.
 The rest describes what the package needs to compile successfully.
 The `rclcpp` package contains everything we need to write C++ code for a robot.
 So if we decide to write our software in C++, we usually depend on `rclcpp`.
@@ -183,7 +183,9 @@ In ROS-Messages we can store and transfer data to other nodes.
 For example, the message `std_msgs/msg/String` is defined <a href="https://docs.ros2.org/foxy/api/std_msgs/msg/String.html" target="_blank">here</a>.
 
 It is a rather simple message because it only contains one field.
-The description of a message is compiled into types that can be used in any supported programming language. Like this, we can use the same message in C++, write something in the data field
+The description of a message is compiled into types that can be used in any supported programming language.
+Like this, we can use the same message in C++ or Python and communicate between programs written in Python and C++.
+For example, we can write something into the message using C++ and send it
 
 ```cpp
 #include <std_msgs/msg/string.hpp>
@@ -192,10 +194,10 @@ The description of a message is compiled into types that can be used in any supp
 
 std_msgs::msg::String message;
 message.data = "Hello!";
-// send message ...
+// send message ... (publisher)
 ```
 
-And read it via 
+and read the data using Python:
 
 ```python
 import std_msgs.msg.String
@@ -203,14 +205,14 @@ import std_msgs.msg.String
 ...
 
 msg = std_msgs.msg.String()
-# receive message ...
+# receive message ... (subscriber)
 print(msg.data)
 ```
 
-Communications between Nodes are not done directly but with so-called ROS-topics in the middle.
+Communications between nodes are not done directly but with so-called ROS-topics in the middle.
 So a `Publisher` is publishing a message on a topic. One ore multiple nodes can subscribe on the topic to receive the ROS-Message that was published on the topic before. This scheme is exceptionally well suited for sensor data:
 An example from reality: ROS-sensor drivers usually access the sensor on low-level and then publish the sensor data to a topic.
-For example a USB webcam driver is accessing the USB interface of the camera and reads the images. The driver doesn't care about *who* exactly needs the images, so it just publishes the image data to a topic.
+For example, a USB webcam driver is accessing the USB interface of the camera and reads the images. The driver doesn't care about *who* exactly needs the images, so it just publishes the image data to a topic.
 Then one node wants to detect cats in the images, so it subscribes on the topic, another node wants to filter the image so that only edges remain, so it subscribes on the topic. Maybe in the future, someone implements some new nodes doing cool things with the images, so they will subscribe to the image topic.
 But the image driver never needs to be changed for that.
 And on the other side, the image processing nodes will never know there is a USB-interface existing.
@@ -291,7 +293,7 @@ If no errors occur the compilation has been successful. After that, you can run 
 ros2 run ex01_first_package publisher
 ```
 
-Open a second terminal (Ctrl + T) and enter 
+Open a second terminal (Ctrl + Shift + T) and enter 
 
 ```console
 ros2 topic list
