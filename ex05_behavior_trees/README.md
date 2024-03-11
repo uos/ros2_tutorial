@@ -1,18 +1,16 @@
 # ex05_behavior_trees
 
+!! unfinished !! Help is appreciated.
 
 ## Deliberation Layer
 
-Action clients are normally implemented inside of high level robot control software, sometimes referred to as [deliberation layer](https://github.com/ros-wg-delib/awesome-ros-deliberation). The two most well-known concepts of deliberation are state machines and behavior trees. A state machine normally consists of a lot of action clients and connects them via transitions:
+Action clients are normally implemented inside of high level robot control software, sometimes referred to as [deliberation layer](https://github.com/ros-wg-delib/awesome-ros-deliberation). The two most well-known concepts of deliberation are state machines and behavior trees. Most of the states in a state machine are basically action clients that are calling and monitoring actions provided by the robot using a certain set of parameters, the states are connected via transitions:
 
 ![smach](./dat/smach.png)
 
-While I prefer the concept of state machines, the current trend in the ROS community is to use behavior trees. For behavior trees the concept stays the same. Nodes in the behavior tree should trigger and monitor the actions the robot provides. More to this later. We will start with creating own actions and action server.
-
+However, the current trend in the ROS community is to use behavior trees. For behavior trees the core concept stays the same. Nodes in a behavior tree trigger and monitor the actions the robot provides. More to this later. We will start with creating own actions and action server.
 
 ## BehaviorTree.CPP
-
-
 
 ### First Behavior Tree
 
