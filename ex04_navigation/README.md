@@ -42,8 +42,8 @@ The particle cloud represents the state of the robot inside of AMCL. The more th
 ### Theory
 
 A belief state is the state of the robot that is estimated based on actions and measurements. Once the robot is successfully localized, the belief state matches the real state.
-Markow localization was invented because people figured out that an unimodal belief state (like a Kalman-Filter has) insufficiently models some parts of the localization problem. 
-Markow localization has a multimodal belief state representation but has the disadvantage, that the state is only allowed to be discrete. Monte-Carlo localization (MCL) overcomes this disadvantage by utilizing a particle filter. MCL uses a set of particles to describe the belief state. This table gives and overview:
+Markow localization was invented because people figured out that a unimodal belief state (like a Kalman-Filter has) insufficiently models some parts of the localization problem. 
+Markow localization has a multimodal belief state representation but has the disadvantage, that the state is only allowed to be discrete. Monte-Carlo localization (MCL) overcomes this disadvantage by utilizing a particle filter. MCL uses a set of particles to describe the belief state. This table gives an overview:
 
 
 | Algorithm | Belief State | State space |
@@ -53,7 +53,7 @@ Markow localization has a multimodal belief state representation but has the dis
 | Markow    |  multimodal  | discrete    | 
 |  MCL      |  multimodal  | continuous  |
 
-In many cases it is not required to have multiple modes in the belief state. But sometimes it is. For example when doing global localization. Normally, the computational effort increases when doing MCL over SLAM.
+In many cases, it is not required to have multiple modes in the belief state. But sometimes it is. For example when doing global localization. Normally, the computational effort increases when doing MCL over SLAM.
 
 (*) The term SLAM - simultaneous localization and mapping - does not exclude the usage of multimodal belief states. However, most of the recent SLAM software has an underlying unimodal belief state. Some SLAM approaches add past pose estimates to the belief state; its dimensionality is growing with each pose added. If interested, search for pose graphs or factor graphs.
 
@@ -68,7 +68,7 @@ Bimodal Distribution ([Wikipedia](https://en.wikipedia.org/wiki/Multimodal_distr
 
 ## Nav2
 
-Given the localization in the map it becomes possible to plan and follow paths from the robot's position to a given goal somewhere else in the map. There is a package exactly handling that: nav2. Browse a bit on their website: https://navigation.ros.org/. In this exercise, you will start a preconfigured nav2 launch file to let the robot for the first time autonomously drive through the map.
+Given the localization in the map, it becomes possible to plan and follow paths from the robot's position to a given goal somewhere else in the map. There is a package exactly handling that: nav2. Browse a bit on their website: https://navigation.ros.org/. In this exercise, you will start a preconfigured nav2 launch file to let the robot for the first time autonomously drive through the map.
 
 ```console
 ros2 launch ceres_navigation nav2_launch.py
@@ -182,4 +182,4 @@ ros2 run ex04_nav2_client nav2_client
 Write a node that uses a `WaitForRvizPose` action client to retrieve a pose from RViz. Then pass the pose to the Nav2 action client to let the robot drive to that goal.
 
 
-TODO: Figure out how to disable that nav2 receives a pose from RViz
+TODO: Figure out how to disable that nav2 receives a pose from RViz (Maybe just a remap?)
