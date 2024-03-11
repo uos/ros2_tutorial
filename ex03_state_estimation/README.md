@@ -203,7 +203,7 @@ Assumptions of (most) SLAM:
 - Belief state must be unimodal -> first pose has to be known
 - What if not? We come back to that later (see MCL)
 
-Ceres robot has implemented a SLAM. Task: Start is by executing:
+Ceres robot has implemented a SLAM. Task: Start it by executing:
 
 ```console
 ros2 launch ceres_localization slam_toolbox_launch.py
