@@ -5,7 +5,9 @@ ROS2 humble - Tutorials for the [KBS](https://kbs.informatik.uos.de/) robotics l
 - Ubuntu 22. Only native! Dual-boot is OK.
 - ROS2 humble (see first tutorial)
 
-All examples are implemented using C++ programming language. The course is at a very beginner level.
+All examples are implemented using C++ programming language. The course is at a very beginner level. In the end you will be able to let a robot autonomously drive from A to B as shown here:
+
+[![Ceres Robot Nav](media/ceres_vid_preview.png)](https://www.youtube.com/watch?v=zTn5MSbwYQ4)
 
 ## [ex01_first_package](./ex01_first_package/)
 
