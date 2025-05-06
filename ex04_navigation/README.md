@@ -41,16 +41,21 @@ The particle cloud represents the state of the robot inside of AMCL. The more th
 
 ### Theory
 
-A belief state is the state of the robot that is estimated based on actions and measurements. Once the robot is successfully localized, the belief state matches the real state.
-Markow localization was invented because people figured out that a unimodal belief state (like a Kalman-Filter has) insufficiently models some parts of the localization problem. 
-Markow localization has a multimodal belief state representation but has the disadvantage, that the state is only allowed to be discrete. Monte-Carlo localization (MCL) overcomes this disadvantage by utilizing a particle filter. MCL uses a set of particles to describe the belief state. This table gives an overview:
+A belief state is the state of the robot that is estimated based on actions and measurements.
+Once the robot is successfully localized, the belief state matches the real state.
+Markow localization is a Bayes filter applied to the localization problem.
+A special implementation is the Kalman filter (KF), which has the limitations of the Belief state to be unimodal. 
+Grid localization comes up with a multimodal state (one probability per grid cell), and therefore can be applied to situations where a unimodal belief state (like a Kalman-Filter has) insufficiently models the localization problem. 
+Grid localization has a multimodal belief state representation but has the disadvantage, that the state is only allowed to be discrete. 
+Monte Carlo localization (MCL) overcomes this disadvantage by utilizing a particle filter. 
+MCL uses a set of particles to describe the belief state. This table gives an overview:
 
 
 | Algorithm | Belief State | State space |
 |:---------:|:------------:|:-----------:|
-|  KF       |  unimodal    | continuous  |
+|  Kalman Filter (KF)      |  unimodal    | continuous  |
 |  SLAM     |  unimodal *  | continuous  |
-| Markow    |  multimodal  | discrete    | 
+| Grid Localization    |  multimodal  | discrete    | 
 |  MCL      |  multimodal  | continuous  |
 
 In many cases, it is not required to have multiple modes in the belief state. But sometimes it is. For example when doing global localization. Normally, the computational effort increases when doing MCL over SLAM.
@@ -65,6 +70,8 @@ MCL ([Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_localization)):
 Bimodal Distribution ([Wikipedia](https://en.wikipedia.org/wiki/Multimodal_distribution)):
 
 ![bimodal](https://upload.wikimedia.org/wikipedia/commons/b/bc/Bimodal_geological.PNG)
+
+This gives a very short overview of state estimation algorithms known in the field of probabilistic robotics. To get a more comprehensive overview we suggest reading the book "Probabilistic Robotics" by Thrun et al.
 
 ## Nav2
 
