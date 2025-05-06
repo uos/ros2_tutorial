@@ -45,18 +45,18 @@ A belief state is the state of the robot that is estimated based on actions and 
 Once the robot is successfully localized, the belief state matches the real state.
 Markow localization is a Bayes filter applied to the localization problem.
 A special implementation is the Kalman filter (KF), which has the limitations of the Belief state to be unimodal. 
-Grid localization comes up with a multimodal state (one probability per grid cell), and therefore can be applied to situations where a unimodal belief state (like a Kalman-Filter has) insufficiently models the localization problem. 
-Grid localization has a multimodal belief state representation but has the disadvantage, that the state is only allowed to be discrete. 
+Grid Localization comes up with a multimodal state (one probability per grid cell), and therefore can be applied to situations where a unimodal belief state (like a Kalman filter has) insufficiently models the localization problem. 
+Grid Localization has a multimodal belief state representation but has the disadvantage, that the state is only allowed to be discrete. 
 Monte Carlo localization (MCL) overcomes this disadvantage by utilizing a particle filter. 
 MCL uses a set of particles to describe the belief state. This table gives an overview:
 
 
 | Algorithm | Belief State | State space |
 |:---------:|:------------:|:-----------:|
-|  Kalman Filter (KF)      |  unimodal    | continuous  |
+|  Kalman filter (KF)      |  unimodal    | continuous  |
 |  SLAM     |  unimodal *  | continuous  |
 | Grid Localization    |  multimodal  | discrete    | 
-|  MCL      |  multimodal  | continuous  |
+|  Monte Carlo localization (MCL)      |  multimodal  | continuous  |
 
 In many cases, it is not required to have multiple modes in the belief state. But sometimes it is. For example when doing global localization. Normally, the computational effort increases when doing MCL over SLAM.
 
